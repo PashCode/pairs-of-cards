@@ -1,4 +1,4 @@
-import { COUNT_CARDS } from './gameData.js';
+import { GAME_CONFIG } from './gameData.js';
 
 async function preloadImages( cards ) {
     const imageMap = new Map();
@@ -15,4 +15,4 @@ async function preloadImages( cards ) {
     return imageMap;
 }
 
-export const preLoadImagesResult = preloadImages( COUNT_CARDS );
+export const preLoadImagesResult = preloadImages( GAME_CONFIG.QUANTITY_CARDS );

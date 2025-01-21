@@ -1,4 +1,4 @@
-import { COUNT_CARDS } from './gameData.js';
+import { GAME_CONFIG } from './gameData.js';
 import { nanoid } from 'https://unpkg.com/nanoid@4.0.2/nanoid.js';
 import { preLoadImagesResult } from './preloadIImages.js';
 
@@ -16,4 +16,4 @@ async function createCards( cards ) {
     } );
 }
 
-export const createdCardsResult = createCards( COUNT_CARDS );
+export const createdCardsResult = createCards( GAME_CONFIG.QUANTITY_CARDS );

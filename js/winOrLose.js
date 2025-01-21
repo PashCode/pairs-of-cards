@@ -1,15 +1,15 @@
 import { choicePairResult } from './choiceCards.js';
-import { allCards } from './gameData.js';
+import { SELECTORS, CLASSES } from './gameData.js';
 
 export async function winOrLose() {
     const cardsArray = await choicePairResult;
 
     const observer = new MutationObserver( () => {
-        const isAllCardsMatched = cardsArray.every( c => c.tag.classList.contains( 'clicked-both' ) );
+        const isAllCardsMatched = cardsArray.every( c => c.tag.classList.contains( CLASSES.MATCHED ) );
         if ( isAllCardsMatched ) {
             const victory = document.createElement( 'p' );
             victory.innerText = 'Victory!';
-            allCards.append( victory );
+            SELECTORS.ALL_CARDS.append( victory );
         }
     } );
 

@@ -1,36 +1,38 @@
-import { allCards, parentHealth, health } from './gameData.js';
-import {winOrLoseResult} from './winOrLose.js';
+import { SELECTORS, CLASSES, GAME_CONFIG } from './gameData.js';
+import { winOrLoseResult } from './winOrLose.js';
 
-function countHealth( cards ) {
-    let quantityHealth = 3;
+
+async function countHealth( cardsPromise ) {
+    // let quantityHealth = 3;
     const checkChoice = [];
+    const cards = await cardsPromise;
 
-    cards.then( ( cards ) => {
-        health.textContent = quantityHealth;
+    SELECTORS.HEALTH_COUNTER.textContent += GAME_CONFIG.INITIAL_HEALTH;
+    // buttonCards.addEventListener('click', () => health.textContent = 3)
 
-        allCards.addEventListener( 'click', ( e ) => {
-                cards.forEach( ( card ) => {
-                    if ( e.target === card.tag && e.target.classList.contains( 'card' ) ) {
-                        checkChoice.push( card.id );
-                    }
-                } );
+    SELECTORS.ALL_CARDS.addEventListener( 'click', ( e ) => {
+        cards.forEach( ( card ) => {
+            if ( e.target === card.tag && e.target.classList.contains( CLASSES.CARD ) ) {
+                checkChoice.push( card.id );
+            }
+        } );
 
-                if ( checkChoice.length === 2 ) {
-                    const [ firstClick, secondClick ] = checkChoice;
-                    if ( firstClick === secondClick ) {
-                        checkChoice.length = 0;
-                    } else {
-                        quantityHealth -= 1;
-                        health.textContent = quantityHealth;
-                        checkChoice.length = 0;
-                        if ( quantityHealth === 0 ) parentHealth.textContent = 'lose';
-                    }
-                }
-            },
-        )
-        ;
+        if ( checkChoice.length === 2 ) {
+            const [ firstClick, secondClick ] = checkChoice;
+
+            if ( firstClick === secondClick ) {
+                checkChoice.length = 0;
+            } else {
+                GAME_CONFIG.INITIAL_HEALTH -= 1;
+                SELECTORS.HEALTH_COUNTER.textContent = GAME_CONFIG.INITIAL_HEALTH;
+                checkChoice.length = 0;
+
+                if ( GAME_CONFIG.INITIAL_HEALTH === 0 ) SELECTORS.HEALTH_CONTAINER.textContent = 'lose';
+            }
+        }
     } );
+
+    return GAME_CONFIG.INITIAL_HEALTH;
 }
 
-
-countHealth( winOrLoseResult );
+await countHealth( winOrLoseResult );

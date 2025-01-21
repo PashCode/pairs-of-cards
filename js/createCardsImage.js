@@ -1,4 +1,5 @@
 import { createdCardsResult } from './createCards.js';
+import { CLASSES } from './gameData.js';
 
 async function createCardsImage() {
     const objectWithCards = await createdCardsResult;
@@ -6,7 +7,7 @@ async function createCardsImage() {
     return objectWithCards.map( ( card ) => {
         const image = document.createElement( 'img' );
         image.src = card.url;
-        image.classList.add( 'card' );
+        image.classList.add( CLASSES.CARD );
         return image;
     } );
 }
