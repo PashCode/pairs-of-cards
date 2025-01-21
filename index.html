@@ -10,18 +10,24 @@
     <script defer type="module" src="js/winOrLose.js"></script>
     <script defer type="module" src="js/health.js"></script>
     <script defer type="module" src="js/gameData.js"></script>
+    <script defer type="module" src="js/newGame.js"></script>
 
 </head>
 <body>
-<div class="start-game">
+<div class="game-container">
+    <div class="game-container__start-game">
+        <button class="start-game">Start game!</button>
+    </div>
+
     <div class="cards-area">
         <div class="health">Your health: <span class="quantity-health"></span></div>
         <div class="all-cards"></div>
         <div class="button-wrap">
             <button class="shuffle-cards-button">Shuffle cards</button>
+            <button class="another-level-button">Choice another level</button>
+
         </div>
     </div>
-
 </div>
 </body>
 </html>
