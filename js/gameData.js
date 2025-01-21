@@ -1,14 +1,10 @@
-// export const allCards = document.querySelector( '.all-cards' );
-// export const buttonCards = document.querySelector( '.shuffle-cards-button' );
-// export const parentHealth = document.querySelector( '.health' );
-// export const health = document.querySelector( '.quantity-health' );
-
-// export const COUNT_CARDS = [ 'first', 'second', 'third' ];
-// export const intermediateChoice = [];
-
 export const GAME_STATE = {
-    intermediateChoice: [],
+    intermediateChoice: {
+        currentSelection: [],
+        healthPoints: [],
+    },
 };
+
 export const GAME_CONFIG = {
     QUANTITY_CARDS: [ 'first', 'second', 'third' ],
     INITIAL_HEALTH: 3,

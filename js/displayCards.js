@@ -21,7 +21,7 @@ export async function displayCards() {
                 : null,
         );
 
-        GAME_STATE.intermediateChoice.length = 0;
+        GAME_STATE.intermediateChoice.currentSelection.length = 0;
         SELECTORS.ALL_CARDS.replaceChildren();
     } );
 

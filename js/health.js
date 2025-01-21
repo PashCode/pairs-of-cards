@@ -1,38 +1,45 @@
-import { SELECTORS, CLASSES, GAME_CONFIG } from './gameData.js';
+import { SELECTORS, CLASSES, GAME_CONFIG, GAME_STATE } from './gameData.js';
 import { winOrLoseResult } from './winOrLose.js';
 
 
 async function countHealth( cardsPromise ) {
-    // let quantityHealth = 3;
-    const checkChoice = [];
     const cards = await cardsPromise;
 
     SELECTORS.HEALTH_COUNTER.textContent += GAME_CONFIG.INITIAL_HEALTH;
-    // buttonCards.addEventListener('click', () => health.textContent = 3)
+
+    SELECTORS.SHUFFLE_BUTTON.addEventListener( 'click', () => {
+        SELECTORS.ALL_CARDS.classList.remove( CLASSES.DISABLED ); //хз нужен или нет
+        GAME_CONFIG.INITIAL_HEALTH = 3;
+        SELECTORS.HEALTH_COUNTER.textContent = '3';
+    } );
 
     SELECTORS.ALL_CARDS.addEventListener( 'click', ( e ) => {
         cards.forEach( ( card ) => {
             if ( e.target === card.tag && e.target.classList.contains( CLASSES.CARD ) ) {
-                checkChoice.push( card.id );
+                GAME_STATE.intermediateChoice.healthPoints.push( card.id );
             }
         } );
 
-        if ( checkChoice.length === 2 ) {
-            const [ firstClick, secondClick ] = checkChoice;
+        if ( GAME_STATE.intermediateChoice.healthPoints.length === 2 ) {
+            const [ firstClick, secondClick ] = GAME_STATE.intermediateChoice.healthPoints;
 
             if ( firstClick === secondClick ) {
-                checkChoice.length = 0;
+                GAME_STATE.intermediateChoice.healthPoints.length = 0;
             } else {
                 GAME_CONFIG.INITIAL_HEALTH -= 1;
-                SELECTORS.HEALTH_COUNTER.textContent = GAME_CONFIG.INITIAL_HEALTH;
-                checkChoice.length = 0;
+                SELECTORS.HEALTH_COUNTER.textContent = `${ GAME_CONFIG.INITIAL_HEALTH }`;
+                GAME_STATE.intermediateChoice.healthPoints.length = 0;
 
-                if ( GAME_CONFIG.INITIAL_HEALTH === 0 ) SELECTORS.HEALTH_CONTAINER.textContent = 'lose';
             }
         }
+        if ( GAME_CONFIG.INITIAL_HEALTH === 0 ) {
+            SELECTORS.HEALTH_COUNTER.textContent = 'lose';
+            SELECTORS.ALL_CARDS.classList.add( CLASSES.DISABLED ); //хз нужен или нет
+        }
+
     } );
 
-    return GAME_CONFIG.INITIAL_HEALTH;
+    // return GAME_CONFIG.INITIAL_HEALTH;
 }
 
 await countHealth( winOrLoseResult );
