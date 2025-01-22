@@ -1,8 +1,6 @@
 import { displayCards } from './displayCards.js';
 import { SELECTORS, GAME_STATE, CLASSES } from './gameData.js';
 
-console.log();
-
 async function choicePairCards( createdCards ) {
     const createdCardsResult = await createdCards;
 

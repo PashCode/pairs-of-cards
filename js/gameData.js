@@ -3,7 +3,9 @@ export const GAME_STATE = {
         currentSelection: [],
         healthPoints: [],
     },
+    gameVales: [],
 };
+
 
 export const GAME_CONFIG = {
     QUANTITY_CARDS: [ 'first', 'second', 'third' ],
@@ -20,6 +22,7 @@ export const SELECTORS = {
     ANOTHER_LEVEL_BUTTON: document.querySelector( '.another-level-button' ),
     HEALTH_CONTAINER: document.querySelector( '.health' ),
     HEALTH_COUNTER: document.querySelector( '.quantity-health' ),
+    WIN_GAME_MESSAGE: document.createElement( 'p' ),
 };
 
 export const CLASSES = {
@@ -27,5 +30,5 @@ export const CLASSES = {
     CLICKED: 'click',
     MATCHED: 'clicked-both',
     DISABLED: 'disabled',
-    HIDDEN: 'hidden'
+    HIDDEN: 'hidden',
 };
