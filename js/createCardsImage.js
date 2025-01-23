@@ -11,7 +11,7 @@ async function createCardsImage() {
         cardImage.classList.add( CLASSES.CARD );
 
         const hiddenCard = document.createElement( 'img' );
-        hiddenCard.src = '../img/hidden-card.jpg';
+        hiddenCard.src = 'img/hidden-card.jpg';
         hiddenCard.classList.add( CLASSES.CARDS_HIDDEN );
         return [ cardImage, hiddenCard ];
     } );
