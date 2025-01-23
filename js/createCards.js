@@ -1,6 +1,6 @@
 import { GAME_CONFIG, GAME_STATE } from './gameData.js';
 import { nanoid } from 'https://unpkg.com/nanoid@4.0.2/nanoid.js';
-import { preLoadImagesResult } from './preloadIImages.js';
+import { preLoadImagesResult } from './preloadIImages.js';;
 
 
 async function createCards( cards ) {

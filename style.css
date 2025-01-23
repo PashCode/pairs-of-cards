@@ -30,13 +30,6 @@ body {
     flex-wrap: wrap;
 }
 
-.card {
-    width: 85px;
-    height: 85px;
-    margin: 15px;
-    cursor: pointer;
-}
-
 .button-wrap {
     position: absolute;
     width: 100%;
@@ -51,9 +44,10 @@ body {
 }
 
 .click {
+    opacity: 0;
+    transition: 1s;
     border: 5px solid black;
     pointer-events: none;
-    transition: .3s;
 }
 
 .clicked-both {
@@ -73,4 +67,24 @@ body {
     display: flex;
     flex-direction: column;
     margin: 20px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px;
+}
+
+.visible-card {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    margin: 15px;
+}
+
+.hidden-card {
+    cursor: pointer;
+    position: absolute;
+    gap: 10px;
 }

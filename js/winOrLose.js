@@ -1,6 +1,7 @@
 import { choicePairResult } from './choiceCards.js';
 import { SELECTORS, CLASSES, GAME_CONFIG, GAME_STATE } from './gameData.js';
 
+
 export async function winOrLose() {
     const cardsArray = await choicePairResult;
 

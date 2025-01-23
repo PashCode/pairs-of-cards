@@ -1,11 +1,29 @@
 import { displayCards } from './displayCards.js';
 import { SELECTORS, GAME_STATE, CLASSES } from './gameData.js';
+import { createdCardsResult } from './createCards.js';
 
 async function choicePairCards( createdCards ) {
     const createdCardsResult = await createdCards;
 
     SELECTORS.ALL_CARDS.addEventListener( 'click', ( e ) => {
-        createdCardsResult.forEach( ( card ) => {
+        createdCardsResult.forEach( ( card, index ) => {
+            console.log( SELECTORS.ALL_CARDS.children );
+            if ( e.target === card.hiddenTag ) {
+
+                const clickedCard = e.target.closest( '.hidden-card' );
+                if ( clickedCard ) {
+                    const cardContainer = clickedCard.closest( '.cards-container' );
+                    const containerIndex = Array.from( SELECTORS.ALL_CARDS.querySelectorAll( '.cards-container' ) ).indexOf( cardContainer );
+                    SELECTORS.ALL_CARDS.children[ containerIndex ].append( card.visibleTag );
+                    console.log( 'Индекс контейнера:', containerIndex );
+                }
+
+
+                // createContainerCard.append( card.visibleTag );
+                e.target.classList.add( CLASSES.CLICKED );
+            }
+
+
             if ( e.target === card.tag && e.target.classList.contains( CLASSES.CARD ) ) {
                 GAME_STATE.intermediateChoice.currentSelection.push( card.id );
                 e.target.classList.add( CLASSES.CLICKED );
@@ -36,7 +54,7 @@ async function choicePairCards( createdCards ) {
     return createdCards;
 }
 
-export const choicePairResult = choicePairCards( displayCards() );
+export const choicePairResult = choicePairCards( createdCardsResult );
 
 
 

@@ -26,10 +26,13 @@ export const SELECTORS = {
     CURRENT_CLICKS_CONTAINER: document.querySelector( '.clicks-now' ),
     CURRENT_CLICKS_COUNTER: document.querySelector( '.quantity-clicks' ),
     WIN_GAME_MESSAGE: document.createElement( 'p' ),
+    // CREATE_CARDS_CONTAINER: document.createElement( 'div' )
 };
 
 export const CLASSES = {
-    CARD: 'card',
+    CARDS_CONTAINER: 'cards-container',
+    CARD: 'visible-card',
+    CARDS_HIDDEN: 'hidden-card',
     CLICKED: 'click',
     MATCHED: 'clicked-both',
     DISABLED: 'disabled',

@@ -1,5 +1,6 @@
 import { addedTagResult } from './addTagToCard.js';
-import { SELECTORS, GAME_CONFIG } from './gameData.js';
+import { SELECTORS, CLASSES } from './gameData.js';
+
 
 function shuffleCards( array ) {
     for ( let i = array.length - 1; i > 0; i-- ) {
@@ -11,16 +12,22 @@ function shuffleCards( array ) {
 
 async function shuffle() {
     const cardsTag = await addedTagResult;
-    const shuffled = shuffleCards( cardsTag );
+    const shuffled = await shuffleCards( cardsTag );
 
     shuffled.forEach( ( tag, index ) => {
-        shuffled.length ? SELECTORS.SHUFFLE_BUTTON.innerText = 'Repeat shuffle' : SELECTORS.SHUFFLE_BUTTON.innerText = 'Start shuffle';
-        // allCards.append( tag.tag );
-        setTimeout( () => SELECTORS.ALL_CARDS.append( tag.tag ), index * 100 );
+        setTimeout( () => {
+            const createContainerCard = document.createElement( 'div' );
+            SELECTORS.ALL_CARDS.append( createContainerCard );
+            createContainerCard.classList.add( CLASSES.CARDS_CONTAINER );
+            createContainerCard.append( tag.hiddenTag );
+            // createContainerCard.append( tag.visibleTag );
+        }, index * 100 );
     } );
 
     return shuffled;
 }
 
 export const shuffleCardsResult = shuffle;
+
+
 
