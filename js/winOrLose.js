@@ -13,7 +13,7 @@ export async function winOrLose() {
         if ( isAllCardsMatched ) {
             SELECTORS.WIN_GAME_MESSAGE.innerText = 'Victory!';
             SELECTORS.ALL_CARDS.append( SELECTORS.WIN_GAME_MESSAGE );
-            SELECTORS.ALL_CARDS.classList.add( CLASSES.DISABLED );
+            SELECTORS.ALL_CARDS.classList.add( CLASSES.DISABLED, CLASSES.WIN_GAME );
         }
 
         setTimeout( () => {

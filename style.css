@@ -5,8 +5,8 @@ body {
 
 .game-container__start-game {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     background-color: cornflowerblue;
     z-index: 2;
     display: flex;
@@ -16,8 +16,8 @@ body {
 
 .cards-area {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     background-color: antiquewhite;
     display: flex;
     align-items: center;
@@ -67,4 +67,10 @@ body {
 
 .hidden {
     display: none;
+}
+
+.counters {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
 }

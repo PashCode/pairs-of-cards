@@ -11,6 +11,8 @@
     <script defer type="module" src="js/health.js"></script>
     <script defer type="module" src="js/gameData.js"></script>
     <script defer type="module" src="js/newGame.js"></script>
+    <script defer type="module" src="js/clicksAndRecord.js"></script>
+
 
 </head>
 <body>
@@ -20,7 +22,13 @@
     </div>
 
     <div class="cards-area">
-        <div class="health">Your health: <span class="quantity-health"></span></div>
+        <div class="counters">
+            <div class="health">Your health: <span class="quantity-health"></span></div>
+            <div class="record">Your record: <span class="quantity-record">0</span></div>
+            <div class="clicks-now">Your clicks: <span class="quantity-clicks">0</span></div>
+        </div>
+
+
         <div class="all-cards"></div>
         <div class="button-wrap">
             <button class="shuffle-cards-button">Shuffle cards</button>

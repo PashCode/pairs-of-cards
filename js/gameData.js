@@ -1,9 +1,8 @@
 export const GAME_STATE = {
-    intermediateChoice: {
-        currentSelection: [],
-        healthPoints: [],
-    },
+    intermediateChoice: { currentSelection: [], healthPoints: [] },
     gameVales: [],
+    clicksCountStorage: { intermediate: 0, final: 0 },
+    STORAGE_KEY: 'clickedCounter',
 };
 
 
@@ -22,6 +21,10 @@ export const SELECTORS = {
     ANOTHER_LEVEL_BUTTON: document.querySelector( '.another-level-button' ),
     HEALTH_CONTAINER: document.querySelector( '.health' ),
     HEALTH_COUNTER: document.querySelector( '.quantity-health' ),
+    RECORD_CONTAINER: document.querySelector( '.record' ),
+    RECORD_COUNTER: document.querySelector( '.quantity-record' ),
+    CURRENT_CLICKS_CONTAINER: document.querySelector( '.clicks-now' ),
+    CURRENT_CLICKS_COUNTER: document.querySelector( '.quantity-clicks' ),
     WIN_GAME_MESSAGE: document.createElement( 'p' ),
 };
 
@@ -31,4 +34,5 @@ export const CLASSES = {
     MATCHED: 'clicked-both',
     DISABLED: 'disabled',
     HIDDEN: 'hidden',
+    WIN_GAME: 'win-game',
 };
