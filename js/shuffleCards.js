@@ -10,7 +10,7 @@ function shuffleCards( array ) {
     return array;
 }
 
-async function shuffle() {
+export async function shuffle() {
     const cardsTag = await addedTagResult;
     const shuffled = await shuffleCards( cardsTag );
 
@@ -20,14 +20,13 @@ async function shuffle() {
             SELECTORS.ALL_CARDS.append( createContainerCard );
             createContainerCard.classList.add( CLASSES.CARDS_CONTAINER );
             createContainerCard.append( tag.hiddenTag );
-            // createContainerCard.append( tag.visibleTag );
         }, index * 100 );
     } );
 
-    return shuffled;
+    // return shuffled;
 }
 
-export const shuffleCardsResult = shuffle;
+// export const shuffleCardsResult = shuffle;
 
 
 

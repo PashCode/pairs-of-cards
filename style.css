@@ -44,23 +44,7 @@ body {
 }
 
 .click {
-    opacity: 0;
-    transition: 1s;
-    border: 5px solid black;
     pointer-events: none;
-}
-
-.clicked-both {
-    border: 10px solid aqua;
-    pointer-events: none;
-}
-
-.disabled {
-    pointer-events: none;
-}
-
-.hidden {
-    display: none;
 }
 
 .counters {
@@ -77,6 +61,7 @@ body {
 }
 
 .visible-card {
+    pointer-events: none;
     position: absolute;
     width: 85px;
     height: 85px;
@@ -87,4 +72,22 @@ body {
     cursor: pointer;
     position: absolute;
     gap: 10px;
+}
+
+.win-game {
+    pointer-events: none;
+}
+
+.lose-game {
+    pointer-events: none;
+}
+
+.matched {}
+
+.disabled {
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
 }

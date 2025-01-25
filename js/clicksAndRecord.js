@@ -40,7 +40,7 @@ function clickCounts() {
     SELECTORS.START_GAME_BUTTON.addEventListener( 'click', resetGame );
 
     SELECTORS.ALL_CARDS.addEventListener( 'click', ( e ) => {
-        const clickedCard = e.target.closest( `.${ CLASSES.CARD }` );
+        const clickedCard = e.target.closest( `.${ CLASSES.CARDS_HIDDEN }` );
         if ( clickedCard ) {
             GAME_STATE.clicksCountStorage.intermediate++;
             SELECTORS.CURRENT_CLICKS_COUNTER.innerText = GAME_STATE.clicksCountStorage.intermediate;

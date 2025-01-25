@@ -8,14 +8,13 @@ async function countHealth( cardsPromise ) {
     SELECTORS.HEALTH_COUNTER.textContent += GAME_CONFIG.INITIAL_HEALTH;
 
     SELECTORS.SHUFFLE_BUTTON.addEventListener( 'click', () => {
-        SELECTORS.ALL_CARDS.classList.remove( CLASSES.DISABLED );
         GAME_CONFIG.INITIAL_HEALTH = 3;
         SELECTORS.HEALTH_COUNTER.textContent = '3';
     } );
 
     SELECTORS.ALL_CARDS.addEventListener( 'click', ( e ) => {
         cards.forEach( ( card ) => {
-            if ( e.target === card.tag && e.target.classList.contains( CLASSES.CARD ) ) {
+            if ( e.target === card.hiddenTag && e.target.classList.contains( CLASSES.CARDS_HIDDEN ) ) {
                 GAME_STATE.intermediateChoice.healthPoints.push( card.id );
             }
         } );
